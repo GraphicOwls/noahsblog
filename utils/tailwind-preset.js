@@ -88,6 +88,7 @@ module.exports = {
                 color: theme('colors.gray.100'),
                 borderBottomColor: theme('colors.gray.700'),
               },
+              'thead th': { color: theme('colors.gray.100') },
               'tbody tr': { borderBottomColor: theme('colors.gray.800') },
             },
           },
