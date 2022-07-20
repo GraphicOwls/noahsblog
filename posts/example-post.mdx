@@ -1,6 +1,6 @@
 ---
 title: How to create SVG-ready icon symbols in Sketch PART 2
-description: "Something has always existed. According to physics, there can never be true physical nothingness—though there can be times when existence resembles nothing, such as a vacuum (the state of minimum possible energy) (Phys.org). Creating a space where there are no quantum."
+description: 'Something has always existed. According to physics, there can never be true physical nothingness—though there can be times when existence resembles nothing, such as a vacuum (the state of minimum possible energy) (Phys.org). Creating a space where there are no quantum.'
 date: May 8 2021
 ---
 
@@ -100,11 +100,31 @@ Sample text here...
 Syntax highlighting
 
 ```js
-var foo = function (bar) {
-  return bar++;
-};
+window.JetboostListUpdated = function (collectionList) {
+  // Loop through all collection items in the list that are currently on the page
+  for (var collectionItem of collectionList.children) {
+    // You can check to see if this is the first time Jetboost has added this collection item to the page.
+    // This is useful for code that should only be run once per item, like adding event handlers.
+    if (collectionItem.jetboostData.firstDisplay) {
+      // Example: Add a click handler to a button inside each collection item
+      collectionItem
+        .querySelector('.my-button')
+        .addEventListener('click', function (e) {
+          // Do something when the button is clicked
+          console.log('Button clicked!');
+        });
+    }
 
-console.log(foo(5));
+    // If there are actions you want to perform every time the items in the collection list change,
+    // then you do not need to worry about the "firstDisplay" property that Jetboost provides.
+
+    // Example: Get the item's slug
+    var slug = collectionItem.querySelector('.jetboost-list-item').value;
+
+    // Do something with the slug
+    console.log(slug);
+  }
+};
 ```
 
 ## Tables
@@ -127,7 +147,7 @@ Right aligned columns
 
 [link text](http://dev.nodeca.com)
 
-[link with title](http://nodeca.github.io/pica/demo/ "title text!")
+[link with title](http://nodeca.github.io/pica/demo/ 'title text!')
 
 Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
 
